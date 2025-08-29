@@ -1,0 +1,14 @@
+
+    guardaCajaFinal($con, $movil, $fecha, $new_dep_ft, $saldo_ft, $saldo_voucher, $dep_voucher, $usuario, $observaciones);
+    
+
+    depositosAMoviles($con, $movil, $fecha, $resto_dep_mov, $dep_vou, $estado);
+
+
+    actDeuAntSalaFavor($con, $movil, $deuda_anterior, $saldo_a_favor, $venta_1, $venta_2, $venta_3, $venta_4, $venta_5);
+    
+    viajesSemSig($con, $movil, $viajes_semana_que_viene);
+    
+    
+    
+    borraVoucher($con, $movil);

@@ -1,0 +1,152 @@
+.boton-verde {
+    background-color: rgb(154, 172, 154);
+    /* Fondo verde */
+    border: none;
+    /* Sin borde */
+    color: white;
+    /* Texto blanco */
+    padding: 15px 32px;
+    /* Espaciado interno (padding) */
+    text-align: center;
+    /* Alineación del texto */
+    text-decoration: none;
+    /* Sin subrayado */
+    display: inline-block;
+    /* Mostrar en línea */
+    font-size: 16px;
+    /* Tamaño de la fuente */
+    margin: 4px 2px;
+    /* Margen */
+    cursor: pointer;
+    /* Puntero en forma de mano */
+    border-radius: 12px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s;
+    /* Transición suave del color de fondo */
+}
+
+.boton-verde:hover {
+    background-color: rgb(22, 194, 27);
+    /* Fondo verde más oscuro al pasar el cursor */
+}
+
+.boton-rojo {
+    background-color: rgb(241, 172, 172);
+    /* Fondo verde */
+    border: none;
+    /* Sin borde */
+    color: white;
+    /* Texto blanco */
+    padding: 15px 32px;
+    /* Espaciado interno (padding) */
+    text-align: center;
+    /* Alineación del texto */
+    text-decoration: none;
+    /* Sin subrayado */
+    display: inline-block;
+    /* Mostrar en línea */
+    font-size: 16px;
+    /* Tamaño de la fuente */
+    margin: 4px 2px;
+    /* Margen */
+    cursor: pointer;
+    /* Puntero en forma de mano */
+    border-radius: 12px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s;
+    /* Transición suave del color de fondo */
+}
+
+.boton-rojo:hover {
+    background-color: rgb(219, 48, 48);
+
+    /* Fondo verde más oscuro al pasar el cursor */
+}
+
+
+
+.outer-container {
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.container {
+    display: flex;
+}
+
+.rectangle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Asegura que los elementos se distribuyan entre la parte superior e inferior */
+    width: 50%;
+    height: 400px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.top-rectangle {
+    width: 98%;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin: 10px 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inner-rectangle-top {
+    font-size: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.inner-rectangle-top div {
+    width: 45%;
+    height: 100px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    /* Alinear el texto a la izquierda */
+    padding-left: 10px;
+    /* Añadir padding para separación */
+}
+
+.inner-rectangle-left {
+    width: 98%;
+    height: 100px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: auto;
+    /* Mueve este cuadro hacia la parte inferior */
+}
+
+.inner-rectangle-right {
+    width: 180px;
+    height: 380px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-left: auto;
+}
+
+.footer {
+    width: 100%;
+    bottom: 0;
+    height: 30px;
+    position: fixed;
+    background: #fff;
+    box-shadow: 1px 1px 5px #000;
+    text-align: center;
+    left: 0;
+    right: 0;
+}

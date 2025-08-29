@@ -1,0 +1,94 @@
+    .zoom-vertical {
+        transform: scaleY(0.7);
+        /* Aumenta la altura 1.5 veces */
+        transform-origin: top;
+        /* El punto de referencia para el zoom */
+        transition: transform 0.3s ease;
+    }
+
+    .contenedor {
+        display: inline-flex;
+        /* Mantiene los elementos en la misma línea */
+        align-items: center;
+        /* Centra verticalmente los elementos */
+        gap: 10px;
+    }
+
+    .recuadro {
+        display: inline-block;
+        border: 2px solid black;
+        padding: 5px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+    }
+
+    .mi-label {
+        width: 500px;
+        display: inline-block;
+    }
+
+    body {
+
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .box {
+        width: 30%;
+        height: 150px;
+        border: 2px solid #333;
+        border-radius: 10px;
+    }
+
+    .box2 {
+        width: 30%;
+        height: 150px;
+        border: 2px solid #333;
+        border-radius: 10px;
+    }
+
+    .resaltado {
+        background-color: orange;
+        font-weight: bold;
+        padding: 5px;
+        border-radius: 5px;
+
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    label {
+        margin-bottom: 10px;
+    }
+
+    textarea {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .texare {
+        padding: 10px 20px;
+        cursor: pointer;
+        background-color: #eff3f7;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .texare:hover {
+        background-color: #a76b1d;
+    }

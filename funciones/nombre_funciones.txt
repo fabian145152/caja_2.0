@@ -1,0 +1,18 @@
+
+
+FUNCIONES UTILIZADADS EN cobro_fin.php
+
+-- Borra los voucer guardados --
+borraVoucher($con, $movil)
+
+-- Guarda en la ddbb lo que despues deposita o deja a cuenta --
+depositosAMoviles($con, $movil, $fecha, $resto_dep_mov, $estado)
+
+-- Guarda los viajes que se cobran la semana que viene --
+viajesSemSig($con, $movil, $viajes_semana_que_viene)
+
+-- Actualiza deuda anterior - saldo a favor y ventas --
+actDeuAntSalaFavor($con, $movil, $deuda_anterior, $saldo_a_favor, $venta_1, $venta_2, $venta_3, $venta_4, $venta_5)
+
+-- Actualiza las semanas pagadas --
+actualizaSemPagadas($con, $movil, $total);
