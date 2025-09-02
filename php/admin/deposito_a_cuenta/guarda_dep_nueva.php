@@ -126,7 +126,7 @@ if ($para_guardar_a_favor > 0) {
     $observaciones = "Deposito a cuenta del movil. " . $movil;
     $fecha = date("Y-m-d H:i:s");
     $new_dep_ft = $deposito;
-    guardaCajaFinal($con, $movil, $fecha, $new_dep_ft, $saldo_ft, $saldo_voucher, $dep_voucher, $usuario, $observaciones);
+    guardaCajaFinal($con, $movil, $fecha, $new_dep_ft, $saldo_ft, $saldo_voucher, $dep_voucher, $usuario, $observaciones, $diez, $noventa, $paga_de_viajes);
 }
 
 echo "<script>window.close();</script>";

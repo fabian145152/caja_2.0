@@ -121,6 +121,7 @@ if ($_SESSION['logueado']) {
 -->
                         <li><a href="admin/cobros/estado_de_caja.php" target="_blank" class=" btn btn-primary btn-block btn-sm">RESUMEN DE CAJA</a></li>
                         <br>
+                        <li><a href="admin/cobros/codigos_y_errores.php" class=" btn btn-info btn-block btn-sm" target="_blank">LISTADO DE CODIGOS Y ERRORES</a></li>
 
                         <!--
                         <li><a href="admin/dep_a_moviles/inicio_dep_mov.php" target="_blank" class=" btn btn-info btn-block btn-sm">DEPOSITOS A REALIZAR PARA LOS CHOFERES</a></li>

@@ -45,14 +45,17 @@ $res_le_1 = $con->query($leo_caj_1);
         <div style="display: flex; justify-content: center; align-items: flex-start; height: 100vh; padding-top: 20px;">
             <table style="border-collapse: collapse; width: 80%; text-align: center;">
                 <thead>
+                    <th>
+                        <p>Ver el listado de los voucher, no da el numero</p>
+                    </th>
                     <tr>
 
                         <th style="border: 1px solid black; padding: 5px;">FECHA</th>
                         <th style="border: 1px solid black; padding: 5px;">MOVIL</th>
                         <th style="border: 1px solid black; padding: 5px;">ULT DEP FT</th>
                         <th style="border: 1px solid black; padding: 5px;">TOTAL EN FT</th>
-                        <th style="border: 1px solid black; padding: 5px;">ULT DEP VOUCHER </th>
-                        <th style="border: 1px solid black; padding: 5px;">TOTAL EN VOUCHER</th>
+                        <th style="border: 1px solid black; padding: 5px;">COMISION</th>
+                        <th style="border: 1px solid black; padding: 5px;">% MOVIL</th>
                         <th style="border: 1px solid black; padding: 5px;">PAGA DE VIAJES</th>
                         <th style="border: 1px solid black; padding: 5px;">USUARIO</th>
                         <th style="border: 1px solid black; padding: 5px;">OBSERVACIONES</th>
