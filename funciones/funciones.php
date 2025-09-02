@@ -44,7 +44,7 @@ function foot()
         }
     </style>
 
-    <div class="footer">Ver 1.2</div>
+    <div class="footer">Ver 2.0</div>
 <?php
 }
 
@@ -245,9 +245,9 @@ function actDeuAntSalaFavor($con, $movil, $deuda_anterior, $saldo_a_favor, $vent
     $stmt->bind_param("iiiiiiii", $deuda_anterior, $saldo_a_favor, $venta_1, $venta_2, $venta_3, $venta_4, $venta_5, $movil);
 
     if ($stmt->execute()) {
-        
+
         echo "<br>Deuda anterior y saldo a favor actualizada correctamente.";
-        
+
         return true;
     } else {
         echo "<strong>Error al actualizar deuda anterior: </strong>" . $stmt->error;
@@ -279,11 +279,11 @@ function ultimosDep($con)
     Guarda los depositos de caja y suma el valor del registro anterior
     para resumen de caja
 */
-function guardaCajaFinal($con, $movil, $fecha, $new_dep_ft, $saldo_ft, $saldo_voucher, $dep_voucher, $usuario, $observaciones)
+function guardaCajaFinal($con, $movil, $fecha, $new_dep_ft, $saldo_ft, $saldo_voucher, $dep_voucher, $usuario, $observaciones, $diez, $noventa, $paga_de_viajes)
 {
 
     //Lee el anteultiomo registro
-    $lee_anteultimo_registro = "SELECT saldo_ft, dep_ft, dep_voucher, saldo_voucher FROM caja_final ORDER BY id DESC LIMIT 1";;
+    $lee_anteultimo_registro = "SELECT saldo_ft, dep_ft, dep_voucher, saldo_voucher, diez, noventa FROM caja_final ORDER BY id DESC LIMIT 1";;
     $res_le = $con->query($lee_anteultimo_registro);
     $row_reg = $res_le->fetch_assoc();
     $total_caja = $row_reg['saldo_ft'];
@@ -307,8 +307,8 @@ function guardaCajaFinal($con, $movil, $fecha, $new_dep_ft, $saldo_ft, $saldo_vo
 
     //exit;
 
-    $sql_gua_ca_ft = "INSERT INTO caja_final (movil, fecha, dep_ft, saldo_ft, dep_voucher, saldo_voucher, usuario, observaciones) ";
-    $sql_gua_ca_ft .= "VALUES (?,?,?,?,?,?,?,?)";
+    $sql_gua_ca_ft = "INSERT INTO caja_final (movil, fecha, dep_ft, saldo_ft, dep_voucher, saldo_voucher, usuario, observaciones, diez, noventa, paga_de_viajes) ";
+    $sql_gua_ca_ft .= "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     $guarda_caja = $con->prepare($sql_gua_ca_ft);
 
     if (!$guarda_caja) {
@@ -316,11 +316,11 @@ function guardaCajaFinal($con, $movil, $fecha, $new_dep_ft, $saldo_ft, $saldo_vo
         return false;
     }
 
-    $guarda_caja->bind_param("isiiiiss", $movil, $fecha, $new_dep_ft, $saldo_ft, $dep_voucher, $saldo_voucher, $usuario, $observaciones);
+    $guarda_caja->bind_param("isiiiissddd", $movil, $fecha, $new_dep_ft, $saldo_ft, $dep_voucher, $saldo_voucher, $usuario, $observaciones, $diez, $noventa, $paga_de_viajes);
 
     if ($guarda_caja->execute()) {
 
-        echo "Datos guardados en caja_final correctamente.";
+        echo "<br>Datos guardados en caja_final correctamente.";
 
         return true;
     } else {

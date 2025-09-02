@@ -113,11 +113,12 @@ if ($_SESSION['logueado']) {
                         <li> <a href="admin/bonifica_deuda/inicio_deuda.php" class="btn btn-danger btn-block btn-sm" target="__blank">BONIFICA DEUDA</a></li>
                         <br>
                         <li> <a href="admin/genera_deuda/genera_deuda.php" class="btn btn-success btn-block btn-sm" target="__blank">GENERA DEUDA</a></li>
-                        <br>                
+                        <br>
                         <li> <a href="admin/deposito_a_cuenta/genera_dep.php" class="btn btn-secondary btn-block btn-sm" target="__blank">DEPOSITO A CUENTA DE LOS MOVILES</a></li>
                         <br>
-                        <li><a href="admin/depositos_a_moviles/inicio_movimientos.php" target="_blank" class=" btn btn-primary btn-block btn-sm">DEPOSITOS A LOS MOVILES</a></li>
+                        <!--      <li><a href="admin/depositos_a_moviles/inicio_movimientos.php" target="_blank" class=" btn btn-primary btn-block btn-sm">DEPOSITOS A LOS MOVILES</a></li>
                         <br>
+-->
                         <li><a href="admin/cobros/estado_de_caja.php" target="_blank" class=" btn btn-primary btn-block btn-sm">RESUMEN DE CAJA</a></li>
                         <br>
 

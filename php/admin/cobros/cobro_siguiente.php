@@ -394,7 +394,7 @@ $sql_voucher = $con->query($sql_voucher);
 
 
             <!-- <form action="cobro_fin.php" method="post" id="formulario" target="_blank"> -->
-            <form action="cobro_fin.php" method="post" id="formulario">
+            <form action="cobro_fin.php" method="post" id="formulario" target="_blank">
 
                 <input type="hidden" id="movil" name="movil" value="<?php echo $movil ?>">
 
@@ -743,24 +743,24 @@ $sql_voucher = $con->query($sql_voucher);
                     <div class="d-flex flex-column gap-2">
                         <a href="inicio_cobros.php" class="btn btn-info">VOLVER</a>
                         <br>
-                        <a href="../editar_deudas/inicio_edit_deuda.php?movil= <?php echo $movil ?>" class="btn btn-secondary" target="_blank">
+                        <a href="../editar_deudas/inicio_edit_deuda.php?movil= <?php echo $movil ?>" class="btn btn-secondary">
                             <?php if ($bonif !== "") {
-                                echo "YA SE LE BONIFICO";
+                                echo "YA SE POSTERGARON SEMNAS";
                             } else {
-                                echo "BONIFICACION";
+                                echo "POSTERGAR SEMANA";
                             }
                             ?></a>
 
                         <br>
                         <a href="../vauchin/exportar_tabla.php?q=<?php echo $movil ?>" class="btn btn-light" target="_blank">VAUCHIN</a>
                         <br>
-                        <a href="../bonifica_deuda/ver_deuda.php?movil= <?php echo $movil ?>" class="btn btn-primary" target="_blank">BONIFICAR DEUDA</a>
+                        <a href="../bonifica_deuda/ver_deuda.php?movil= <?php echo $movil ?>" class="btn btn-primary" target="_blank">BONIFICA DEUDA</a>
                         <br>
                         <button type="submit" class="btn btn-danger">COBRAR</button>
-                        <!--
+
                         <br>
                         <button type="submit" name="accion" value="depositar.php" class="btn btn-dark">DEPOSITAR</button>
-                        -->
+
 
                     </div>
 
