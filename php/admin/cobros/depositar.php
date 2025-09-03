@@ -3,25 +3,17 @@ include_once "../../../funciones/funciones.php";
 $con = conexion();
 $con->set_charset("utf8mb4");
 
-echo $movil = $_GET['movil'];
+echo "<br>Movil :" . $movil = $_GET['movil'];
+echo "<br>";
+echo "<br>Semanas postergadas: " . $semanas = $_POST['postergar_semana'];
 
-if (isset($_POST['tot_voucher'])) {
-    $tot_voucher = $_POST['tot_voucher'];
-} else {
-    $tot_voucher = 0; // O un valor predeterminado
-}
-
-echo $tot_voucher;
-
-exit;
-
+//exit;
 $sql_comp = "SELECT * FROM completa WHERE movil='$movil'";
-
 $result = $con->query($sql_comp);
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        echo "ID: " . $row["id"] . "<br>";
+        echo "<br>ID: " . $row["id"] . "<br>";
         echo "Movil: " . $row["movil"] . "<br>";
         echo "Deuda anterior: " . $row["deuda_anterior"] . "<br>";
         echo "Saldo a favor: " . $row["saldo_a_favor_ft"] . "<br>";
@@ -37,7 +29,6 @@ if ($result->num_rows > 0) {
 }
 
 $sql_sem = "SELECT * FROM semanas WHERE movil='$movil'";
-
 $resulta = $con->query($sql_sem);
 
 if ($resulta->num_rows > 0) {
@@ -46,11 +37,18 @@ if ($resulta->num_rows > 0) {
         echo "Movil: " . $row["movil"] . "<br>";
         echo "x_semana: " . $x_semana = $row["x_semana"] . "<br>";
         echo "Total: " . $debe_semanas = $row["total"] . "<br>";
+        $debe_semanas = abs($debe_semanas);
+        $x_semana = abs($x_semana);
+        echo "Cant: " . $cant = $debe_semanas / $x_semana;
+        echo "<br>Semanas postergadas: " . $semanas;
+        echo "<br>total de semanas: " . $tot_sem = $cant - $semanas;
+        echo "Esta todo mal...";
         echo "<hr>";
     }
 } else {
     echo "No se encontraron resultados.";
 }
+exit;
 
 $sql_sem = "SELECT * FROM voucher_validado WHERE movil='$movil'";
 
@@ -68,6 +66,9 @@ if ($resulta->num_rows > 0) {
     echo "No se encontraron resultados.";
 }
 
+
+
+exit;
 $deuda_anterior = 0;
 $saldo_a_favor = 0;
 $venta_1 = 0;
@@ -76,8 +77,12 @@ $venta_3 = 0;
 $venta_4 = 0;
 $venta_5 = 0;
 $total = $x_semana;
+$mensaje;
+
+obsDeuda($con, $movil, $postergar_semana, $mensaje);
 borraVoucher($con, $movil);
 actualizaSemPagadas($con, $movil, $total);
 actDeuAntSalaFavor($con, $movil, $deuda_anterior, $saldo_a_favor, $venta_1, $venta_2, $venta_3, $venta_4, $venta_5);
-guardaCajaFinal($con, $movil, $fecha, $new_dep_ft, $saldo_ft, $saldo_voucher, $dep_voucher, $usuario, $observaciones);
+guardaCajaFinal($con, $movil, $fecha, $new_dep_ft, $saldo_ft, $saldo_voucher, $dep_voucher, $usuario, $observaciones, $diez, $noventa, $paga_de_viajes);
+
 header("Location: cobro_empieza.php?movil=" . urlencode($movil));

@@ -724,7 +724,7 @@ $sql_voucher = $con->query($sql_voucher);
                             ?>
                                 <label class="mi-label"></label>
                                 <input type="text" id="postergar_semana" name="postergar_semana" placeholder="N° de semanas..." value="0">
-                                <h4>Semanas que paga</h4>
+                                <h4>Posterga semanas.</h4>
                             <?php
                             }
                             ?>
@@ -756,10 +756,15 @@ $sql_voucher = $con->query($sql_voucher);
                         <br>
                         <a href="../bonifica_deuda/ver_deuda.php?movil= <?php echo $movil ?>" class="btn btn-primary" target="_blank">BONIFICA DEUDA</a>
                         <br>
-                        <button type="submit" class="btn btn-danger">COBRAR</button>
 
                         <br>
-                        <button type="submit" name="accion" value="depositar.php" class="btn btn-dark">DEPOSITAR</button>
+                        <button type="submit" formaction="cobro_fin.php" class="btn btn-danger">COBRAR</button>
+                        <br>
+                        <button type="submit" formaction="depositar.php?movil=<?php echo $movil ?>" class="btn btn-dark" target="_blank">DEPOSITAR</button>
+                        <br>
+
+
+
 
 
                     </div>
