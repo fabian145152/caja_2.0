@@ -747,7 +747,7 @@ $sql_voucher = $con->query($sql_voucher);
                             <?php if ($bonif !== "") {
                                 echo "YA SE POSTERGARON SEMNAS";
                             } else {
-                                echo "POSTERGAR SEMANA";
+                                echo "";
                             }
                             ?></a>
 

@@ -42,13 +42,13 @@ if ($resulta->num_rows > 0) {
         echo "Cant: " . $cant = $debe_semanas / $x_semana;
         echo "<br>Semanas postergadas: " . $semanas;
         echo "<br>total de semanas: " . $tot_sem = $cant - $semanas;
-        echo "Esta todo mal...";
+
         echo "<hr>";
     }
 } else {
     echo "No se encontraron resultados.";
 }
-exit;
+
 
 $sql_sem = "SELECT * FROM voucher_validado WHERE movil='$movil'";
 
@@ -68,7 +68,7 @@ if ($resulta->num_rows > 0) {
 
 
 
-exit;
+//exit;
 $deuda_anterior = 0;
 $saldo_a_favor = 0;
 $venta_1 = 0;
@@ -85,4 +85,4 @@ actualizaSemPagadas($con, $movil, $total);
 actDeuAntSalaFavor($con, $movil, $deuda_anterior, $saldo_a_favor, $venta_1, $venta_2, $venta_3, $venta_4, $venta_5);
 guardaCajaFinal($con, $movil, $fecha, $new_dep_ft, $saldo_ft, $saldo_voucher, $dep_voucher, $usuario, $observaciones, $diez, $noventa, $paga_de_viajes);
 
-header("Location: cobro_empieza.php?movil=" . urlencode($movil));
+header("Location: inicio_cobros.php");
