@@ -45,18 +45,17 @@ $res_le_1 = $con->query($leo_caj_1);
         <div style="display: flex; justify-content: center; align-items: flex-start; height: 100vh; padding-top: 20px;">
             <table style="border-collapse: collapse; width: 80%; text-align: center;">
                 <thead>
-                    <th>
-                        <p>Ver el listado de los voucher, no da el numero</p>
-                    </th>
+                   
                     <tr>
 
                         <th style="border: 1px solid black; padding: 5px;">FECHA</th>
                         <th style="border: 1px solid black; padding: 5px;">MOVIL</th>
                         <th style="border: 1px solid black; padding: 5px;">ULT DEP FT</th>
                         <th style="border: 1px solid black; padding: 5px;">TOTAL EN FT</th>
-                        <th style="border: 1px solid black; padding: 5px;">COMISION</th>
                         <th style="border: 1px solid black; padding: 5px;">% MOVIL</th>
+                        <th style="border: 1px solid black; padding: 5px;">COMISION</th>
                         <th style="border: 1px solid black; padding: 5px;">PAGA DE VIAJES</th>
+                        <th style="border: 1px solid black; padding: 5px;">VOUCHER DE</th>
                         <th style="border: 1px solid black; padding: 5px;">USUARIO</th>
                         <th style="border: 1px solid black; padding: 5px;">OBSERVACIONES</th>
 
@@ -91,6 +90,9 @@ $res_le_1 = $con->query($leo_caj_1);
                             $saldo_caja = $row['saldo_ft'];
                             $saldo_ca = number_format($saldo_caja, 2, ',', '.');
                             $viajes = $row['paga_de_viajes'];
+                            $noventa = $row['noventa'];
+                            $pa_movil = $noventa - $viajes;
+                            $tot_voucher = $pa_movil + $row['diez'] + $viajes;
 
                             ?>
                             <tr>
@@ -100,9 +102,10 @@ $res_le_1 = $con->query($leo_caj_1);
                                 <th style="border: 1px solid black; padding: 3px;"><?php echo $row['movil'] ?></th>
                                 <th style="border: 1px solid black; padding: 3px;"><?php echo $pesos ?></th>
                                 <th style="border: 1px solid black; padding: 3px;"><?php echo $saldo_ca ?></th>
+                                <th style="border: 1px solid black; padding: 3px;"><?php echo $pa_movil ?></th>
                                 <th style="border: 1px solid black; padding: 3px;"><?php echo $row['diez'] ?></th>
-                                <th style="border: 1px solid black; padding: 3px;"><?php echo $row['noventa'] ?></th>
                                 <th style="border: 1px solid black; padding: 3px;"><?php echo $viajes ?></th>
+                                <th style="border: 1px solid black; padding: 3px;"><?php echo $tot_voucher ?></th>
                                 <th style="border: 1px solid black; padding: 3px;"><?php echo $row['usuario'] ?></th>
                                 <th style="border: 1px solid black; padding: 3px;"><?php echo $row['observaciones'] ?></th>
 

@@ -743,7 +743,7 @@ $sql_voucher = $con->query($sql_voucher);
                     <div class="d-flex flex-column gap-2">
                         <a href="inicio_cobros.php" class="btn btn-info">VOLVER</a>
                         <br>
-                        <a href="../editar_deudas/inicio_edit_deuda.php?movil= <?php echo $movil ?>" class="btn btn-secondary">
+                        <a href="../editar_deudas/inicio_edit_deuda.php?movil= <?php echo $movil ?>" class="btn btn-secondary" target="_blank">
                             <?php if ($bonif !== "") {
                                 echo "YA SE POSTERGARON SEMNAS";
                             } else {
