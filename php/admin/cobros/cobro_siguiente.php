@@ -722,9 +722,19 @@ $sql_voucher = $con->query($sql_voucher);
                             $sem = $cant_sem - 1;
                             if ($sem > 0 && $noventa > 0) {
                             ?>
+                                <style>
+                                    input#postergar_semana {
+                                        width: 50px;
+                                        /* o el tamaño que prefieras */
+                                        text-align: center;
+                                    }
+                                </style>
                                 <label class="mi-label"></label>
                                 <input type="text" id="postergar_semana" name="postergar_semana" placeholder="N° de semanas..." value="0">
-                                <h4>Posterga semanas.</h4>
+                                <button type="submit" maxlength="3" size="3" formaction="posterga_semana.php?movil=<?php echo $movil ?> & postergar_semana=<?php echo $postergar_semana ?>" class="btn btn-dark" target="_blank">POST SEMANAS</button>
+
+
+
                             <?php
                             }
                             ?>

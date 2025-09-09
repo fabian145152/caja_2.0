@@ -7,10 +7,10 @@ $con->set_charset("utf8mb4");
 
 
 
+/*
 $sql = "SELECT * FROM completa WHERE movil = '$movil'";
 $result = $con->query($sql);
 $viaje_sem_anterior = $result->fetch_assoc();
-
 
 $viajes_anteriores = $viaje_sem_anterior['v_sem_siguiente'];
 echo "<br>Viajes de la semana anterior: " . $viajes_anteriores;
@@ -60,13 +60,13 @@ if ($viajes_q_se_cobran == $tot_viajes) {
   echo "<br>Para base: " . $para_base = round($para_base);
   echo "<br>Resto dep movil: " . $resto_dep_mov = $para_movil;
   echo "<br>Viajes que se cobran la semana que viene: " . $viajes_semana_que_viene;
-
-  //exit;
-
-  $saldo_leido = saldoCaja($con, $para_movil);
-  echo "<br>Saldo leido: " . $saldo_leido;
-}
-echo "<br>Fin recuento de viajes";
+*/
+//exit;
+$viajes_semana_que_viene = 0;
+$saldo_leido = saldoCaja($con, $para_movil);
+//echo "<br>Saldo leido: " . $saldo_leido;
+//}
+//echo "<br>Fin recuento de viajes";
 echo "<br>";
 
 //exit;
