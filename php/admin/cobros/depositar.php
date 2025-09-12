@@ -4,8 +4,8 @@ $con = conexion();
 $con->set_charset("utf8mb4");
 
 echo "<br>Movil :" . $movil = $_GET['movil'];
-echo "<br>Semanas postergadas: " . $semanas_postergadas = $_POST['postergar_semana'];
-
+echo "<br>";
+echo "<br>Semanas postergadas: " . $semanas = $_POST['postergar_semana'];
 
 //exit;
 $sql_comp = "SELECT * FROM completa WHERE movil='$movil'";
@@ -39,8 +39,11 @@ if ($resulta->num_rows > 0) {
         echo "Total: " . $debe_semanas = $row["total"] . "<br>";
         $debe_semanas = abs($debe_semanas);
         $x_semana = abs($x_semana);
-        $cant = $debe_semanas / $x_semana;
-
+        echo "Cant: " . $cant = $debe_semanas / $x_semana;
+        echo "<br>Semanas postergadas: " . $semanas;
+        echo "<br>total de semanas: " . $tot = $cant - $semanas;
+        echo "<br>Debe quedar: " . $to = $tot + $semanas;
+        $total = $to * $x_semana;
 
 
         echo "<hr>";
@@ -49,15 +52,7 @@ if ($resulta->num_rows > 0) {
     echo "No se encontraron resultados.";
 }
 
-echo "<br>Debe semanas: " . $debe_semanas;
-echo "<br>Cantidad total: " . $cant;
-echo "<br>Semanas postergadas: " . $semanas_postergadas;
-echo "<br>Debe descontarle: " . $to = $cant - $semanas_postergadas;
-echo "<br>Debe guardar para cobrar la proxima: " . $total = $cant * $x_semana;
 
-
-
-//exit;
 $sql_sem = "SELECT * FROM voucher_validado WHERE movil='$movil'";
 
 $resulta = $con->query($sql_sem);
@@ -84,14 +79,13 @@ $venta_2 = 0;
 $venta_3 = 0;
 $venta_4 = 0;
 $venta_5 = 0;
-
-echo $mensaje;
-
-exit;
+echo "<br>Total: " . $total;
+$mensaje;
+//exit;
 obsDeuda($con, $movil, $postergar_semana, $mensaje);
 borraVoucher($con, $movil);
 actualizaSemPagadas($con, $movil, $total);
 actDeuAntSalaFavor($con, $movil, $deuda_anterior, $saldo_a_favor, $venta_1, $venta_2, $venta_3, $venta_4, $venta_5);
 guardaCajaFinal($con, $movil, $fecha, $new_dep_ft, $saldo_ft, $saldo_voucher, $dep_voucher, $usuario, $observaciones, $diez, $noventa, $paga_de_viajes);
 
-header("Location: inicio_cobros.php");
+include_once "../../../includes/cierra_pestaña.php";

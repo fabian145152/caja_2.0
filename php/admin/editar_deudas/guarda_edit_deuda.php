@@ -30,4 +30,5 @@ if ($con->query($sql_obs) === TRUE) {
     exit();
 }
 // ...existing code...
-header('Location:../cobros/inicio_cobros.php');
+//header('Location:../cobros/inicio_cobros.php');
+include_once "../../../includes/cierra_pestaña.php";

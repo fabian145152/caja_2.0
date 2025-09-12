@@ -145,7 +145,7 @@ if ($_SESSION['logueado']) {
                         <br>
                         <li><a href="admin/cobros/estado_de_caja.php" target="_blank" class=" btn btn-primary btn-block btn-sm">RESUMEN DE CAJA</a></li>
                         <br>
-                        <li><a href="admin/depositos_a_moviles/inicio_movimientos.php" target="_blank" class=" btn btn-primary btn-block btn-sm">DEPOSITOS A LOS MOVILES</a></li>
+                        <li><a href="admin/salida_caja/inicio_salida.php" target="_blank" class=" btn btn-primary btn-block btn-sm">EXTRACIONES</a></li>
                         <br>
                         <h3>SIN TERMINAR</h3>
 

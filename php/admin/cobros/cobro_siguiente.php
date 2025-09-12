@@ -537,7 +537,7 @@ $sql_voucher = $con->query($sql_voucher);
                                 <?php
                             } elseif ($cobra_2 > 0) {
                                 ?>
-                                    <label class="mi-label">DEBE ABONAR</label>
+                                    <label class="mi-label">DEUDA</label>
                                     <input type="hidden" id="depo_mov" name="depo_mov" value="<?php echo $cobra_1 ?>" readonly>
                                     <input type="text" id="" name="" value="<?php echo $cobra_2 ?>"
                                         style="background-color: red; color: yellow;" readonly>
@@ -637,7 +637,7 @@ $sql_voucher = $con->query($sql_voucher);
                                 <input type="hidden" id="saldo_a_favor" name="saldo_a_favor"
                                     value="<?php echo $saldo_a_favor ?>">
 
-                                <input type="text" id="imp_modif" name="imp_modif" value="<?php echo $noventa ?>">
+                                <input type="hidden" id="imp_modif" name="imp_modif" value="<?php echo $noventa ?>">
                                 <input type="hidden" id="deuda_ant" name="deuda_ant" value="<?php echo $deu_ant ?>">
                                 <input type="hidden" id="venta_1" name="venta_1" value="<?php echo $ven_1 ?>">
                                 <input type="hidden" id="venta_2" name="venta_2" value="<?php echo $ven_2 ?>">
@@ -716,67 +716,30 @@ $sql_voucher = $con->query($sql_voucher);
 
                         <li>
                             <br>
-                            <!--
                             <label class="mi-label">Deposito FT:</label>
                             <input type="text" id="dep_ft" name="dep_ft" placeholder="Ingrese dinero" autofocus required>
-                            -->
                             <?php
                             $sem = $cant_sem - 1;
                             if ($sem > 0 && $noventa > 0) {
                             ?>
                                 <style>
                                     input#postergar_semana {
-                                        width: 100px;
+                                        width: 50px;
+                                        /* o el tamaño que prefieras */
                                         text-align: center;
-                                    }
-
-
-                                    .recuadro-postergar {
-                                        border: 2px solid #28a745;
-
-                                        padding: 15px;
-                                        margin: 20px 0;
-                                        border-radius: 8px;
-                                        background-color: #f8f9fa;
-                                        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-                                        max-width: 300px;
-                                    }
-
-                                    .mi-label {
-                                        font-weight: bold;
-                                        display: block;
-                                        margin-bottom: 8px;
-                                    }
-
-                                    input#postergar_semana {
-                                        width: 100px;
-                                        text-align: center;
-                                        padding: 6px;
-                                        margin-bottom: 2px;
-                                        border: 1px solid #ccc;
-                                        border-radius: 4px;
-                                    }
-
-                                    .btn-outline-success {
-                                        width: 100%;
                                     }
                                 </style>
-
-                                <div>
-                                    <br><br>
-                                    <?php
-
-                                    ?>
-                                    <!--
-
-                                    <label class="mi-label">POSTERGA SEMANAS</label>
-                                    <input class="recuadro-postergar" type="text" id="postergar_semana" name="postergar_semana" placeholder="N° de semanas..." value="0">
-                                    <button type="submit" maxlength="3" size="3">CALCULA</button>
-                                </div>
+                                <label class="mi-label"></label>
+                                <!--    <button type="submit" maxlength="3" size="3" formaction="posterga_semana.php?movil=<?php echo $movil ?> & postergar_semana=<?php echo $postergar_semana ?>" class="btn btn-dark" target="_blank">POST SEMANAS</button>
+                                <input type="text" id="postergar_semana" name="postergar_semana" placeholder="N° de semanas..." value="0">
                                 -->
-                                <?php
+
+
+
+
+                            <?php
                             }
-                                ?>
+                            ?>
                         </li>
 
                         <?php
@@ -784,6 +747,8 @@ $sql_voucher = $con->query($sql_voucher);
                         }
                         ?>
                         <li>
+                        </li>
+                        </ul>
                     </div>
 
 
@@ -792,7 +757,7 @@ $sql_voucher = $con->query($sql_voucher);
                         <br>
                         <a href="../editar_deudas/inicio_edit_deuda.php?movil= <?php echo $movil ?>" class="btn btn-secondary" target="_blank">
                             <?php if ($bonif !== "") {
-                                echo "YA SE POSTERGARON SEMANAS";
+                                echo "YA SE POSTERGARON SEMNAS";
                             } else {
                                 echo "";
                             }
@@ -807,7 +772,7 @@ $sql_voucher = $con->query($sql_voucher);
                         <br>
                         <button type="submit" formaction="cobro_fin.php" class="btn btn-danger">COBRAR</button>
                         <br>
-                        <button type="submit" formaction="depositar.php?movil=<?php echo $movil ?> & semanas_post= 'postergar_semanas'" class="btn btn-dark" target="_blank">DEPOSITAR</button>
+                        <button type="submit" formaction="depositar.php?movil=<?php echo $movil ?>" class="btn btn-dark" target="_blank">DEPOSITAR</button>
                         <br>
 
 

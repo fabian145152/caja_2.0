@@ -121,11 +121,12 @@ if ($_SESSION['logueado']) {
 -->
                         <li><a href="admin/cobros/estado_de_caja.php" target="_blank" class=" btn btn-primary btn-block btn-sm">RESUMEN DE CAJA</a></li>
                         <br>
+                        <li><a href="admin/salida_caja/inicio_salida.php" target="_blank" class=" btn btn-primary btn-block btn-sm">EXTRACIONES</a></li>
+                        <br>
                         <li><a href="admin/cobros/codigos_y_errores.php" class=" btn btn-info btn-block btn-sm" target="_blank">LISTADO DE CODIGOS Y ERRORES</a></li>
 
+
                         <!--
-                        <li><a href="admin/dep_a_moviles/inicio_dep_mov.php" target="_blank" class=" btn btn-info btn-block btn-sm">DEPOSITOS A REALIZAR PARA LOS CHOFERES</a></li>
-                        <br>
                          <li><a href="admin/historial/inicio_resumen.php" target="_blank" class=" btn btn-primary btn-block btn-sm">HISTORIAL DE PAGOS DEL MOVIL</a></li>
                         <br> 
                         <li><a href="admin/cobros/recibos" target="_blank" class=" btn btn-primary btn-block btn-sm">RECIBOS</a></li>

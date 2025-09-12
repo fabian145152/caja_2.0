@@ -32,10 +32,14 @@
             font-weight: bold;
         }
     </style>
+
     <script>
-        let multiplicador;
-        let otraVariable;
+        let imp_viaje;
+        let imp_voucher;
         let saldoAfavor;
+        let cant_viajes;
+
+
 
         function calcularYRestar() {
             const cant_viajes = parseFloat(document.getElementById('cant_viajes').value) || 0;
@@ -43,10 +47,13 @@
             const campoResultado = document.getElementById('resultadoResta');
             const mensaje = document.getElementById('mensajeResultado');
 
-            const resultadoMultiplicacion = cant_viajes * multiplicador;
+
+            const resultadoMultiplicacion = cant_viajes * imp_viaje;
             const adicionalPorSemana = semanasPostergadas * paga_x_semana;
-            const resultadoResta = otraVariable - resultadoMultiplicacion;
+            const resultadoResta = imp_voucher - resultadoMultiplicacion;
             const resultadoFinal = resultadoResta + saldoAfavor + adicionalPorSemana;
+
+            //            console.log(resultadoMultiplicacion);
 
             document.getElementById('resultadoMultiplicacion').value = resultadoMultiplicacion.toFixed(2);
             campoResultado.value = resultadoFinal.toFixed(2);
@@ -62,18 +69,20 @@
             }
         }
     </script>
+
 </head>
 
 <body>
     <?php
     $paga_x_semana = round($paga_x_semana); // Asegurate de que esté definido
-    $multiplicador = round($paga_x_viaje);
-    $otraVariable = round($dato_a_env);
+    $imp_viaje = round($paga_x_viaje);
+    $imp_voucher = round($dato_a_env);
     echo "<script>
-            multiplicador = $multiplicador;
-            otraVariable = $otraVariable;
+            imp_viaje = $imp_viaje;
+            imp_voucher = $imp_voucher;
             saldoAfavor = $saldo_a_favor;
             paga_x_semana = $paga_x_semana;
+            
           </script>";
     ?>
 
@@ -87,20 +96,21 @@
 
             <div class="form-group">
                 <label for="postergar_semana">Semanas postergadas:</label>
-                <input type="text" id="postergar_semana" name="postergar_semana" onblur="calcularYRestar()" value="0">
+                <input type="text" id="postergar_semana" name="postergar_semana" onblur="calcularYRestar()" value="0" style="text-align: center;">
             </div>
 
-            <h6>Ingrese cantidad y presione la tecla <strong>TAB</strong></h6>
+          
 
             <input type="hidden" id="resultadoMultiplicacion" readonly>
 
             <div class="form-group">
-                <label for="resultadoResta">Resultado final:</label>
-                <input type="text" id="resultadoResta" name="resultadoResta" style="background-color: yellow;" readonly>
+                <label for="resultadoResta">Resultado:</label>
+                <input type="text" id="resultadoResta" name="resultadoResta" style="background-color: yellow; text-align: center;" readonly>
             </div>
 
             <p id="mensajeResultado" style="font-weight: bold;"></p>
         </form>
+
     </div>
 </body>
 
