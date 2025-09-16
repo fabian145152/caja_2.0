@@ -65,6 +65,10 @@ $row = $result_movil->fetch_assoc();
                         <input type="text" class="form-control" id="movil" name="movil" value="<?php echo $row['movil']; ?>" readonly>
                     </div>
                     <div class="form-group">
+                        <label class="control-label">TROPA</label>
+                        <input type="text" class="form-control" id="tropa" name="tropa" value="<?php echo $row['tropa']; ?>">
+                    </div>
+                    <div class="form-group">
                         <label class="control-label">Nombre</label>
                         <input type="text" class="form-control" id="nombre_titu" name="nombre_titu" value="<?php echo $row['nombre_titu']; ?>">
                     </div>

@@ -41,7 +41,6 @@ $con->set_charset("utf8mb4");
 <body>
 
     <h1 class="text-center" style="margin: 5px ; ">LISTAR TROPAS</h1>
-    <h4 class="text-center" style="margin: 5px ; ">SI QUEDA UNA SOLA UNIDAD EN LA TROPA CAMBIARLE EL NUMERO DE TROPA A <STRONG>50</STRONG></h4>
 
     <div class="row">
         <style>
@@ -59,7 +58,7 @@ $con->set_charset("utf8mb4");
         </style>
         <div class="btn-group d-flex w-50" role="group">
             &nbsp; &nbsp; &nbsp;
-            <a href="insert_tropa.php" class="btn btn-primary btn-sm">NUEVA TROPA</a>
+            <!-- <a href="insert_tropa.php" class="btn btn-primary btn-sm">NUEVA TROPA</a> -->
             &nbsp; &nbsp; &nbsp;
             <button onclick="cerrarPagina()" class="btn btn-primary btn-sm">CERRAR PAGINA</button>
         </div>
@@ -73,7 +72,7 @@ $con->set_charset("utf8mb4");
                 <th>Movil</th>
                 <th>Apellido</th>
                 <th>Nombre</th>
-                <th></th>
+                <th>CELULAR</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -82,40 +81,41 @@ $con->set_charset("utf8mb4");
             <tr>
 
                 <?php
-                $sql = "SELECT * FROM completa WHERE 1 ORDER BY tropa ASC";
+                $sql = "SELECT * FROM completa WHERE tropa != 50 ORDER BY tropa ASC";
                 $result = $con->query($sql);
+
+                $tropas_vistas = [];
+
                 while ($row = $result->fetch_assoc()) {
-
-                    if ($row['tropa'] != 50) {
-                        echo "<td>";
-                        echo $row['tropa'] . "</td>";
-                        echo "<td>";
-                        echo $row['movil'] . "</td>";
-                        echo "<td>";
-                        echo $row['apellido_titu'] . "</td>";
-                        echo "<td>";
-                        echo $row['nombre_titu'] . "</td>";
-                        echo "<td>";
-                        $row['movil'] . "</td>";
-                ?>
-
-                        <td> <a class="btn btn-primary btn-sm" href="#" onclick="updateProduct(<?php echo $row['id']; ?>)">Actualizar</td>
-
-                        <td> <a class="btn btn-danger btn-sm" href="#" onclick="deleteProduct(<?php echo $row['id']; ?>)">Eliminar</td>
-
-                    <?php
-
+                    // Si ya mostramos esta tropa, la saltamos
+                    if (in_array($row['tropa'], $tropas_vistas)) {
+                        continue;
                     }
-                    ?>
+
+                    // Guardamos esta tropa como ya vista
+                    $tropas_vistas[] = $row['tropa'];
+
+                    echo "<tr>";
+                    echo "<td>" . $row['tropa'] . "</td>";
+                    echo "<td>" . $row['movil'] . "</td>";
+                    echo "<td>" . $row['apellido_titu'] . "</td>";
+                    echo "<td>" . $row['nombre_titu'] . "</td>";
+                    echo "<td>" . $row['cel_titu'] . "</td>";
 
 
-            </tr>
-            </form>
+
+                    echo '<td><a class="btn btn-primary btn-sm" href="#" onclick="updateProduct(' . $row['id'] . ')">Actualizar</a></td>';
+                    echo '<td><a class="btn btn-danger btn-sm" href="#" onclick="deleteProduct(' . $row['id'] . ')">Eliminar</a></td>';
+                    echo "</tr>";
+                }
+                ?>
+                </form>
+
         </tbody>
+        <?php foot(); ?>
 
-    <?php } ?>
-
-    <?php foot(); ?>
+    </table>
+    <br>
 </body>
 
 </html>

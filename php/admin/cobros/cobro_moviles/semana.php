@@ -1,7 +1,7 @@
 <?php
 
 //session_start();
-include_once "../../../funciones/funciones.php";
+include_once "../../../../funciones/funciones.php";
 
 
 

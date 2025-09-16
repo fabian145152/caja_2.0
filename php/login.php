@@ -10,6 +10,7 @@ $pass = md5($_POST['password']);
 
 
 
+
 $con->set_charset("utf-8");
 $sql = "SELECT * FROM users WHERE (username='$usr' or email='$usr') and (password='$pass')";
 $result = $con->query($sql);

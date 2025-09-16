@@ -72,7 +72,7 @@ for ($i = 0; $i <= $cant - 1; $i++) {
 ?>
 <script>
     alert("NUEVA TROPA CREADA CON EXITO");
-    window.location = "../../menu.php";
+    window.location = "../../menu_admin.php";
 </script>
 
 <?php

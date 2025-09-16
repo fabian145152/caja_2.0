@@ -1,5 +1,5 @@
 <?php
-include_once "../../../funciones/funciones.php";
+include_once "../../../../funciones/funciones.php";
 $con = conexion();
 $con->set_charset("utf8mb4");
 
@@ -43,7 +43,11 @@ if ($resulta->num_rows > 0) {
         echo "<br>Semanas postergadas: " . $semanas;
         echo "<br>total de semanas: " . $tot = $cant - $semanas;
         echo "<br>Debe quedar: " . $to = $tot + $semanas;
-        $total = $to * $x_semana;
+        if ($semanas > 0) {
+            echo "<br>Total: " . $total = $to * $x_semana;
+        } else {
+            echo "<br>De semana: " . $total = $x_semana;
+        }
 
 
         echo "<hr>";
@@ -79,13 +83,21 @@ $venta_2 = 0;
 $venta_3 = 0;
 $venta_4 = 0;
 $venta_5 = 0;
+
+
 echo "<br>Total: " . $total;
-$mensaje;
+
 //exit;
+$mensaje;
+
+
 obsDeuda($con, $movil, $postergar_semana, $mensaje);
 borraVoucher($con, $movil);
 actualizaSemPagadas($con, $movil, $total);
 actDeuAntSalaFavor($con, $movil, $deuda_anterior, $saldo_a_favor, $venta_1, $venta_2, $venta_3, $venta_4, $venta_5);
 guardaCajaFinal($con, $movil, $fecha, $new_dep_ft, $saldo_ft, $saldo_voucher, $dep_voucher, $usuario, $observaciones, $diez, $noventa, $paga_de_viajes);
 
-include_once "../../../includes/cierra_pestaña.php";
+?>
+<script>
+    window.close();
+</script>

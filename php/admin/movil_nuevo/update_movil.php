@@ -10,6 +10,7 @@ echo $id_movil = $_POST['id'];
 echo "<br>";
 echo "Movil: " . $movil = $_POST['movil'];
 echo "<br>";
+echo "<br>Tropa: " . $tropa = $_POST['tropa'];
 echo "Semana Movil: " . $semana_movil;
 echo "<br>";
 echo "Nombre: " . $nombre = $_POST['nombre_titu'];
@@ -45,7 +46,8 @@ $sql_movil = "UPDATE completa SET movil = '$movil',
                                     direccion_titu = '$direccion',
                                     cp_titu = '$cp',
                                     cel_titu = '$celular',
-                                    licencia_titu = '$licencia'
+                                    licencia_titu = '$licencia',
+                                    tropa = $tropa
                                     WHERE id=" . $id_movil;
 
 $con->query($sql_movil);

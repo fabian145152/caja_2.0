@@ -1,6 +1,6 @@
 <?php
 //session_start();
-include_once "../../../funciones/funciones.php";
+include_once "../../../../funciones/funciones.php";
 $con = conexion();
 $con->set_charset("utf8mb4");
 $deuda_ant = 0;
@@ -199,15 +199,44 @@ $sql_voucher = $con->query($sql_voucher);
 
 <body>
     <div class="zoom-vertical">
-
-
-
-
-
         <ul style="border: 2px solid black; padding: 10px; border-radius: 10px; list-style-type: none;">
             <div id="contaaaenedor">
-                <h4>Estado de cuenta del movil: <?php echo $movil . "." ?></h4>
-                <h5>Fecha: <?php echo date("l d/m/Y"); ?> Se le esta cobrando la semana <?php echo $semana = date('W') - 1 ?>
+                <?php $dia = date("w"); ?>
+                <h4>Estado de cuenta del <strong>MOVIL: </strong> <?php echo $movil . "." ?></h4>
+                <h5>Fecha:
+                    <?php
+
+                    switch ($dia) {
+                        case 0:
+                            echo "Domingo";
+                            break;
+                        case 1:
+                            echo "Lunes";
+                            break;
+                        case 2:
+                            echo "Martes";
+                            break;
+                        case 3:
+                            echo "Miércoles";
+                            break;
+                        case 4:
+                            echo "Jueves";
+                            break;
+                        case 5:
+                            echo "Viernes";
+                            break;
+                        case 6:
+                            echo "Sábado";
+                            break;
+                        default:
+                            echo "Día desconocido";
+                    }
+                    ?>
+                    <?php
+                    echo $dia;
+                    date("d/m/Y");
+                    ?>
+                    Se le esta cobrando la semana <?php echo $semana = date('W') - 1 ?>
                 </h5>
 
 
@@ -232,7 +261,7 @@ $sql_voucher = $con->query($sql_voucher);
                         echo "<strong>COMENTARIOS: </strong>" . $observ;
 
                         ?>
-                        <a href="../observaciones/ver_obs.php?movil=<?php echo $movil ?>" class="btn btn-success" target="_blank">EDITAR</a>
+                        <a href="../../observaciones/ver_obs.php?movil=<?php echo $movil ?>" class="btn btn-success" target="_blank">EDITAR</a>
                     </div>
                 </div>
                 <!-- </h6>  -->
@@ -718,6 +747,12 @@ $sql_voucher = $con->query($sql_voucher);
                             <br>
                             <label class="mi-label">Deposito FT:</label>
                             <input type="text" id="dep_ft" name="dep_ft" placeholder="Ingrese dinero" autofocus required>
+
+
+                            <!---------------------------------------------------------------------------------- -->
+
+
+
                             <?php
                             $sem = $cant_sem - 1;
                             if ($sem > 0 && $noventa > 0) {
@@ -730,7 +765,8 @@ $sql_voucher = $con->query($sql_voucher);
                                     }
                                 </style>
                                 <label class="mi-label"></label>
-                                <!--    <button type="submit" maxlength="3" size="3" formaction="posterga_semana.php?movil=<?php echo $movil ?> & postergar_semana=<?php echo $postergar_semana ?>" class="btn btn-dark" target="_blank">POST SEMANAS</button>
+                                <!--  
+                                  <button type="submit" maxlength="3" size="3" formaction="posterga_semana.php?movil=<?php echo $movil ?> & postergar_semana=<?php echo $postergar_semana ?>" class="btn btn-dark" target="_blank">POST SEMANAS</button>
                                 <input type="text" id="postergar_semana" name="postergar_semana" placeholder="N° de semanas..." value="0">
                                 -->
 
@@ -755,7 +791,7 @@ $sql_voucher = $con->query($sql_voucher);
                     <div class="d-flex flex-column gap-2">
                         <a href="inicio_cobros.php" class="btn btn-info">VOLVER</a>
                         <br>
-                        <a href="../editar_deudas/inicio_edit_deuda.php?movil= <?php echo $movil ?>" class="btn btn-secondary" target="_blank">
+                        <a href="../../editar_deudas/inicio_edit_deuda.php?movil= <?php echo $movil ?>" class="btn btn-secondary" target="_blank">
                             <?php if ($bonif !== "") {
                                 echo "YA SE POSTERGARON SEMNAS";
                             } else {
@@ -764,15 +800,17 @@ $sql_voucher = $con->query($sql_voucher);
                             ?></a>
 
                         <br>
-                        <a href="../vauchin/exportar_tabla.php?q=<?php echo $movil ?>" class="btn btn-light" target="_blank">VAUCHIN</a>
+                        <a href="../../vauchin/exportar_tabla.php?q=<?php echo $movil ?>" class="btn btn-light" target="_blank">VAUCHIN</a>
                         <br>
-                        <a href="../bonifica_deuda/ver_deuda.php?movil= <?php echo $movil ?>" class="btn btn-primary" target="_blank">BONIFICA DEUDA</a>
+                        <a href="../../bonifica_deuda/ver_deuda.php?movil= <?php echo $movil ?>" class="btn btn-primary" target="_blank">BONIFICA DEUDA</a>
                         <br>
 
                         <br>
                         <button type="submit" formaction="cobro_fin.php" class="btn btn-danger">COBRAR</button>
                         <br>
-                        <button type="submit" formaction="depositar.php?movil=<?php echo $movil ?>" class="btn btn-dark" target="_blank">DEPOSITAR</button>
+                        <!--  <button type="submit" formaction="depositar.php?movil=<?php echo $movil ?>" class="btn btn-dark" target="_blank">DEPOSITAR</button> -->
+                        <button onclick="window.open('depositar.php?movil=2', '_blank', 'width=800,height=600')" class=" btn btn-dark">DEPOSITAR</button>
+
                         <br>
 
 

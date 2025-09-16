@@ -1,9 +1,14 @@
 <?php
 
-session_start();
-include_once "../../../funciones/funciones.php";
 
-include "semana.php";
+
+session_start();
+
+include_once "../../../../funciones/funciones.php";
+$_SESSION['uname'];
+$_SESSION['time'];
+
+include_once "semana.php";
 
 
 $con = conexion();
@@ -31,13 +36,17 @@ $semana_actual = date("W");
     -->
     <br><br><br><br><br>
     <form style=" text-align:center;" method="POST" action="cobro_empieza.php">
-        Ingrese Movil:
+        COBRAR A MOVIL:
         <input type="text" id="movil" name="movil" autofocus required>
         <button type="submit">Continuar</button>
     </form>
     <br><br><br>
 
-
+    <form style=" text-align:center;" method="POST" action="../cobro_tropas/tropas_empieza.php">
+        COBRAR A TROPA:
+        <input type="text" id="tropa" name="tropa" autofocus required>
+        <button type="submit">Continuar</button>
+    </form>
 
     <br><br><br>
 

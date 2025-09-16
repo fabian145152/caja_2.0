@@ -61,9 +61,9 @@ if ($_SESSION['logueado']) {
                             <br>
                             <li><a href="admin/crear_no_de_movil/list_no_movil.php" target="_blank" class="btn btn-primary btn-block btn-sm">CREAR NUMERO DE MOVIL</a></li>
                             <br>
-                            <li><a href="admin/tropas/lista_tropas.php" target="_blank" class="btn btn-primary btn-block btn-sm">CREAR NUEVA TROPA</a></li>
+                            <li><a href="admin/tropas/lista_tropas.php" target="_blank" class="btn btn-primary btn-block btn-sm">CREAR / EDITAR TROPA</a></li>
                             <br>
-                            <li><a href="admin/movil_nuevo/lista_movil.php" target="_blank" class="btn btn-primary btn-block btn-sm">CREAR EDITAR TITULAR </a></li>
+                            <li><a href="admin/movil_nuevo/lista_movil.php" target="_blank" class="btn btn-primary btn-block btn-sm">CREAR EDITAR TITULAR / TROPA</a></li>
                             <br>
                             <li><a href="admin/uni_comp/list_uni_comp.php" class="btn btn-primary btn-block btn-sm" target="_blank">EDICION DE UNIDAD COMPLETA</a></li>
                             <br>
@@ -108,7 +108,7 @@ if ($_SESSION['logueado']) {
                         <!--
                         <li><a href="ayuda/help.php" target="_blank" class="btn btn-info btn-block btn-sm">AYUDA DE COBROS</a></li>
                         <br>-->
-                        <li><a href="admin/cobros/inicio_cobros.php" target="_blank" class=" btn btn-primary btn-block btn-sm">COBRAR A MOVIL</a></li>
+                        <li><a href="admin/cobros/cobro_moviles/inicio_cobros.php" target="_blank" class=" btn btn-primary btn-block btn-sm">COBRAR MOVILES / TROPAS</a></li>
                         <br>
                         <li> <a href="admin/bonifica_deuda/inicio_deuda.php" class="btn btn-danger btn-block btn-sm" target="__blank">BONIFICA DEUDA</a></li>
                         <br>
@@ -119,7 +119,7 @@ if ($_SESSION['logueado']) {
                         <!--      <li><a href="admin/depositos_a_moviles/inicio_movimientos.php" target="_blank" class=" btn btn-primary btn-block btn-sm">DEPOSITOS A LOS MOVILES</a></li>
                         <br>
 -->
-                        <li><a href="admin/cobros/estado_de_caja.php" target="_blank" class=" btn btn-primary btn-block btn-sm">RESUMEN DE CAJA</a></li>
+                        <li><a href="admin/cobros/cobro_moviles/estado_de_caja.php" target="_blank" class=" btn btn-primary btn-block btn-sm">RESUMEN DE CAJA</a></li>
                         <br>
                         <li><a href="admin/salida_caja/inicio_salida.php" target="_blank" class=" btn btn-primary btn-block btn-sm">EXTRACIONES</a></li>
                         <br>

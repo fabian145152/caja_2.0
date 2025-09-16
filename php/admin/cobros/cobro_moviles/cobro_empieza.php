@@ -1,9 +1,10 @@
 <?php
 session_start();
-$_SESSION['uname'];
-$_SESSION['time'];
 
-include_once "../../../funciones/funciones.php";
+
+
+include_once "../../../../funciones/funciones.php";
+//include_once "../caja_2.0/funciones/funciones.php";
 
 $con = conexion();
 $con->set_charset("utf8mb4");

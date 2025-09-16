@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "../../../funciones/funciones.php";
+include_once "../../../../funciones/funciones.php";
 
 $con = conexion();
 $con->set_charset("utf8mb4");
@@ -45,7 +45,7 @@ $res_le_1 = $con->query($leo_caj_1);
         <div style="display: flex; justify-content: center; align-items: flex-start; height: 100vh; padding-top: 20px;">
             <table style="border-collapse: collapse; width: 80%; text-align: center;">
                 <thead>
-                   
+
                     <tr>
 
                         <th style="border: 1px solid black; padding: 5px;">FECHA</th>
