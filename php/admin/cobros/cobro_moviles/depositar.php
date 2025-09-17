@@ -7,7 +7,17 @@ echo "<br>Movil :" . $movil = $_GET['movil'];
 echo "<br>";
 echo "<br>Semanas postergadas: " . $semanas = $_POST['postergar_semana'];
 
-//exit;
+?>
+<script>
+    let respuesta = confirm("¿Estás seguro de que quiere continuar?");
+    if (respuesta) {
+        alert("¡Tomó nota de los datos???.");
+    } else {
+        alert("Operación cancelada.");
+    }
+</script>
+<?php
+
 $sql_comp = "SELECT * FROM completa WHERE movil='$movil'";
 $result = $con->query($sql_comp);
 

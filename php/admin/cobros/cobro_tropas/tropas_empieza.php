@@ -28,6 +28,16 @@ if ($resultado && $resultado->num_rows > 0) {
     //echo "No se encontraron resultados.";
 }
 
+$sql = "SELECT * FROM completa WHERE tropa = $tropa ORDER BY movil";
+$resultado = $con->query($sql);
+
+$moviles = []; // Creamos el array vacío
+
+if ($resultado && $resultado->num_rows > 0) {
+    while ($fila = $resultado->fetch_assoc()) {
+        $moviles[] = $fila['movil']; // Guardamos cada móvil en el array
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -306,8 +316,29 @@ if ($resultado && $resultado->num_rows > 0) {
 
         </ul>
         <?php
-        $sql_voucher = "SELECT * FROM voucher_validado WHERE movil = '$mov'";
-        $res_voucher = $con->query($sql_voucher);
+
+        // Ejemplo de uso
+        foreach ($moviles as $index => $movil) {
+            echo "Móvil #" . ($index + 1) . ": " . $movil . "<br>";
+        }
+        //---------------------------------------------------
+        $SSql = "SELECT * FROM voucher_validados WHERE movil = '$movil'";
+        $sql_vou = $con->query($SSql);
+
+        // Verificamos si hay resultados
+        if ($sql_vou && $sql_vou->num_rows > 0) {
+            $sql_voucher = $sql_vou->fetch_assoc();
+
+            // Acceder a los datos
+            echo "ID: " . $sql_voucher['id'] . "<br>";
+            echo "Móvil: " . $sql_voucher['movil'] . "<br>";
+            echo "Fecha: " . $sql_voucher['fecha'] . "<br>";
+            echo "Usuario: " . $sql_voucher['usuario'] . "<br>";
+            // Agregá más campos según tu estructura de tabla
+        } else {
+            echo "No se encontraron vouchers para el móvil $movil.";
+        }
+        //---------------------------------------------------
         ?>
         <ul class="recuadro">
 
@@ -320,34 +351,25 @@ if ($resultado && $resultado->num_rows > 0) {
                     <th>Viaje_no</th>
                     <th>Total</th>
                 </tr>
-                <?php
-                while ($view = $res_voucher->fetch_assoc()) {
-                    $movil = $view['movil'];
-                    $viaje_no = $view['viaje_no'];
-                    $reloj = $view['reloj'];
-                    $peaje = $view['peaje'];
-                    $equipaje = $view['equipaje'];
-                    $adicional = $view['adicional'];
-                    $plus = $view['plus'];
-                    $tot_vou = $reloj + $peaje + $equipaje + $adicional + $plus;
-                ?>
-                    <tr>
-                        <td><?php echo $movil ?></td>
-                        <td><?php echo $viaje_no ?></td>
-                        <td><?php echo $tot_vou ?></td>
-                    </tr>
-                <?php
-                }
-                ?>
+
+                <tr>
+                    <td><?php //echo $movil 
+                        ?></td>
+                    <td><?php //echo $viaje_no 
+                        ?></td>
+                    <td><?php //echo $tot_vou 
+                        ?></td>
+                </tr>
+
             </table>
         </ul>
     </div>
     <div class="recuadro-botones">
-        <h2>ACCIONES DISPONIBLES</h2>
+
         <div class="botonera">
             <button onclick="accion1()">DEPOSITAR</button>
             <button onclick="accion2()">COBRAR</button>
-            <button onclick="accion3()">VOLVER</button>
+            <a href="../cobro_moviles/inicio_cobros.php">VOLVER</a>
         </div>
     </div>
     </form>

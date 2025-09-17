@@ -226,6 +226,20 @@ if (isset($_POST['viajes_anteriores'])) {
 }
 
 
+?>
+<script>
+    let respuesta = confirm("¿Estás seguro de que querés continuar?");
+    if (respuesta) {
+        alert("¡Continuamos...!.");
+    } else {
+        alert("Operación cancelada.");
+    }
+</script>
+<?php
+
+
+
+
 $imp_viajes = $paga_x_viaje * $viajes_q_se_cobran;
 $descuentos = $desc - $imp_viajes;
 $suma_gastos_semanales = $debe_semanas + $total_ventas + $deuda_anterior + $imp_viajes;
@@ -516,16 +530,10 @@ if ($tot_voucher == 0 && $new_dep_ft == 0 && $debe_semanas > 0 && $deuda_anterio
 //OK ---------- (cod 17) Deposito solo
 if ($tot_voucher == 0 && $new_dep_ft > 0 && $debe_semanas == 0 && $saldo_a_favor == 0 && $deuda_anterior == 0 && $ventas == 0 && $postergar_semana == 0) {
     echo "(cod 17) Deposito solo plata con deudas en 0";
+    echo "<br>Ir a: ";
+    echo "<br><a href='../../../admin/deposito_a_cuenta/genera_dep.php'>DEPOSITAR</a>";
 
-    $resto_dep_mov = $new_dep_ft;
-    $saldo_a_favor = $resto_dep_mov;
-    actDeuAntSalaFavor($con, $movil, $deuda_anterior, $saldo_a_favor, $venta_1, $venta_2, $venta_3, $venta_4, $venta_5);
-    guardaCajaFinal($con, $movil, $fecha, $new_dep_ft, $saldo_ft, $saldo_voucher, $dep_voucher, $usuario, $observaciones, $diez, $noventa, $paga_de_viajes);
-?>
-    <script>
-        window.close();
-    </script>
-<?php
+    exit;
 }
 //OK ---------- (cod 18) Deposito - Ventas
 if ($tot_voucher == 0 && $new_dep_ft > 0 && $debe_semanas == 0 && $deuda_anterior == 0 && $saldo_a_favor == 0 && $ventas > 0 && $postergar_semana == 0) {
