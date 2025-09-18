@@ -26,11 +26,11 @@ $sql_activo = "SELECT * FROM semanas WHERE 1";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNI COMPLETAS</title>
-    <?php head(); ?>
 
     <script src="../../../js/jquery-3.4.1.min.js"></script>
     <script src="../../../js/bootstrap.min.js"></script>
     <script src="../../../js/bootbox.min.js"></script>
+    <?php head(); ?>
     <style>
         select,
         input.texto {
@@ -117,8 +117,8 @@ $sql_activo = "SELECT * FROM semanas WHERE 1";
                 <th>Modelo</th>
                 <th>Dominio</th>
                 <th>año</th>
-               
-               
+
+
                 <th>Detalles</th>
                 <th>Actualizar</th>
                 <th>Eliminar</th>
@@ -153,8 +153,9 @@ $sql_activo = "SELECT * FROM semanas WHERE 1";
                     <th><?php echo $row['modelo'] ?></th>
                     <th><?php echo $row['dominio'] ?></th>
                     <th><?php echo $row['año'] ?></th>
-                   <!--
-                    <th><?php //echo $row['deuda_anterior'] ?></th>
+                    <!--
+                    <th><?php //echo $row['deuda_anterior'] 
+                        ?></th>
         -->
                     <td> <a class="btn btn-primary btn-sm" href="#" onclick="detalleProduct(<?php echo $row['id']; ?>)">Detalles</td>
                     <td> <a class="btn btn-primary btn-sm" href="#" onclick="updateProduct(<?php echo $row['id']; ?>)">Actualizar</td>

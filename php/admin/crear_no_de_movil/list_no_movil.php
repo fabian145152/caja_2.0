@@ -66,10 +66,10 @@ $con->set_charset("utf8mb4");
     <table class="table table-bordered table-sm table-hover">
         <thead class="thead-dark">
             <tr>
+                <th></th>
                 <th>Movil</th>
-
                 <th>Actualizar</th>
-                <th>Eliminar</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -93,7 +93,7 @@ $con->set_charset("utf8mb4");
             while ($row_movil = $result->fetch_assoc()) {
             ?>
                 <tr>
-
+                    <td></td>
                     <?php $id = $row_movil['id'] ?>
                     <td><?php $numero_de_movil = $row_movil['movil'];
                         if ($numero_de_movil > 0 && $numero_de_movil <= 9) {
@@ -112,7 +112,7 @@ $con->set_charset("utf8mb4");
                     </td>
 
                     <td> <a class="btn btn-primary btn-sm" href="edit_no_movil.php?q= <?php echo $id ?>">Actualizar</td>
-                    <td> <a class=" btn btn-danger btn-sm" <?php echo $id ?>">Eliminar</td>
+                    <td></td>
                 </tr>
                 <p></p>
             <?php

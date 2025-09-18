@@ -4,7 +4,11 @@ include_once "../../../funciones/funciones.php";
 $con = conexion();
 $con->set_charset("utf8mb4");
 
+
+
+
 $id_del = $_GET['q'];
+
 
 $sql_comp = "SELECT * FROM completa WHERE id=" . $id_del;
 $comp = $con->query($sql_comp);
